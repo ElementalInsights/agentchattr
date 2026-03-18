@@ -1,26 +1,6 @@
 /* --- Jobs panel (right sidebar) --- */
 
-#jobs-panel {
-    --panel-w: 360px;
-    width: var(--panel-w);
-    min-width: 260px;
-    max-width: 50vw;
-    flex-shrink: 0;
-    background: var(--bg-header);
-    border-left: none;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    margin-right: 0;
-    transition: margin-right 0.25s ease, opacity 0.2s ease;
-    position: relative;
-}
-
-#jobs-panel.hidden {
-    margin-right: calc(-1 * var(--panel-w));
-    opacity: 0;
-    pointer-events: none;
-}
+/* #jobs-panel is now an inner container inside #right-panel — sizing handled by parent */
 
 /* .jobs-grip, .jobs-header, .jobs-empty — shared in style.css */
 
@@ -107,7 +87,7 @@
 .job-card.reorder-dragging {
     opacity: 0.35;
     transform: scale(0.97);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-md);
 }
 
 .job-card.reorder-target-before::before,
@@ -119,7 +99,6 @@
     height: 3px;
     border-radius: 3px;
     background: var(--accent);
-    box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 50%, transparent);
     pointer-events: none;
     z-index: 2;
 }
@@ -229,14 +208,14 @@
 
 .archive-selectable.archive-holding {
     transform: translateY(-2px) scale(1.012);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.28);
+    box-shadow: var(--shadow-md);
     background: color-mix(in srgb, var(--bg-msg-hover) 80%, var(--white-03));
     z-index: 2;
 }
 
 .archive-selectable.archive-selected {
-    outline: 1.5px solid rgba(248, 113, 113, 0.5);
-    background: rgba(248, 113, 113, 0.06);
+    outline: 1.5px solid rgba(204, 51, 51, 0.4);
+    background: rgba(204, 51, 51, 0.04);
 }
 
 .archive-selectable.archive-dragging {
@@ -261,9 +240,9 @@
     left: -9999px;
     pointer-events: none;
     border-radius: 10px;
-    border: 1px solid rgba(248, 113, 113, 0.28);
-    background: color-mix(in srgb, var(--bg-msg-hover) 86%, rgba(248, 113, 113, 0.08));
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.36);
+    border: 1px solid rgba(204, 51, 51, 0.2);
+    background: color-mix(in srgb, var(--bg-msg-hover) 86%, rgba(204, 51, 51, 0.06));
+    box-shadow: var(--shadow-lg);
     transform: rotate(-1.2deg) scale(1.01);
     z-index: 9999;
 }
@@ -281,9 +260,9 @@ body.archive-no-select * {
     gap: 8px;
     padding: 10px;
     margin: 6px 0 2px;
-    border: 2px dashed rgba(248, 113, 113, 0.2);
+    border: 2px dashed rgba(204, 51, 51, 0.2);
     border-radius: var(--radius-lg);
-    color: rgba(248, 113, 113, 0.35);
+    color: rgba(204, 51, 51, 0.35);
     font-size: 0.72rem;
     opacity: 0;
     max-height: 0;
@@ -301,9 +280,9 @@ body.archive-no-select * {
 
 .archive-trash-zone.has-selection {
     cursor: pointer;
-    border-color: rgba(239, 68, 68, 0.5);
+    border-color: rgba(204, 51, 51, 0.4);
     color: var(--danger);
-    background: rgba(239, 68, 68, 0.06);
+    background: rgba(204, 51, 51, 0.04);
 }
 
 .archive-trash-zone.has-selection:hover,
@@ -311,9 +290,8 @@ body.archive-no-select * {
 .archive-trash-zone.drop-ready {
     border-color: var(--danger);
     color: var(--danger);
-    background: rgba(239, 68, 68, 0.12);
+    background: rgba(204, 51, 51, 0.08);
     transform: translateY(0) scale(1.01);
-    filter: drop-shadow(0 0 6px rgba(248, 113, 113, 0.25));
 }
 
 .archive-trash-zone.drop-ready {
@@ -330,8 +308,8 @@ body.archive-no-select * {
 }
 
 @keyframes archive-trash-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
-    50% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0.09); }
+    0%, 100% { box-shadow: 0 0 0 0 rgba(204, 51, 51, 0); }
+    50% { box-shadow: 0 0 0 6px rgba(204, 51, 51, 0.06); }
 }
 
 .job-card-meta {
@@ -504,7 +482,7 @@ body.archive-no-select * {
 }
 
 .job-toggle.active.archived {
-    background: rgba(239, 68, 68, 0.15);
+    background: rgba(204, 51, 51, 0.1);
     color: var(--danger);
 }
 
@@ -545,6 +523,8 @@ body.archive-no-select * {
     position: relative;
     transition: max-height 0.2s ease, opacity 0.2s ease, transform 0.2s ease, padding 0.2s ease;
     transform-origin: top;
+    background: transparent;
+    color: #1e1e1e;
 }
 
 .job-msg.job-msg-removing {
@@ -622,7 +602,7 @@ body.archive-no-select * {
 
 .job-msg-del-btn:hover {
     color: var(--error-color);
-    background: rgba(248, 113, 113, 0.1);
+    background: var(--error-soft);
 }
 
 .job-msg-delete-label {
@@ -670,11 +650,28 @@ body.archive-no-select * {
 .job-msg-text {
     font-size: 13px;
     line-height: 1.5;
-    color: var(--text);
+    color: #1e1e1e;
     min-width: 0;
     word-break: break-word;
     overflow-wrap: anywhere;
 }
+
+/* Ensure all job message content uses dark text on light panel background */
+.job-msg-text p,
+.job-msg-text li,
+.job-msg-text strong,
+.job-msg-text em,
+.job-msg-text h1, .job-msg-text h2, .job-msg-text h3,
+.job-msg-text h4, .job-msg-text h5, .job-msg-text h6 { color: #1e1e1e; }
+.job-msg-text a { color: var(--accent); }
+.job-msg-text code { background: rgba(30, 30, 30, 0.07); color: #1e1e1e; }
+.job-msg-text pre { background: rgba(30, 30, 30, 0.04); border: 1px solid var(--border); color: #1e1e1e; }
+.job-msg-text blockquote { color: #5a5a4e; border-left-color: var(--accent); }
+.job-msg-text th, .job-msg-text td { border-color: var(--border); color: #1e1e1e; }
+.job-msg-text th { background: rgba(30, 30, 30, 0.04); }
+.job-msg-text hr { border-top-color: var(--border); }
+.job-msg-sender { color: var(--text) !important; }
+.job-msg-time { color: var(--text-dim); }
 
 .job-msg-text ul,
 .job-msg-text ol {
@@ -710,11 +707,11 @@ body.archive-no-select * {
 
 /* Suggestion messages in jobs */
 .job-suggestion {
-    border: 1px solid rgba(124, 58, 237, 0.2);
+    border: 1px solid rgba(241, 101, 36, 0.2);
     border-radius: var(--radius-md);
     margin: 4px 8px;
     padding: 8px 10px;
-    background: rgba(124, 58, 237, 0.04);
+    background: rgba(241, 101, 36, 0.04);
 }
 
 .suggestion-pill {
@@ -856,7 +853,7 @@ body.archive-no-select * {
     height: 8px;
     border-radius: var(--radius-full);
     background: var(--accent);
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 0 1px rgba(30, 30, 30, 0.15);
     flex-shrink: 0;
 }
 
@@ -924,7 +921,7 @@ body.archive-no-select * {
     background: var(--bg-header);
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
-    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-lg);
     margin-bottom: 4px;
     z-index: 21;
 }
@@ -1043,9 +1040,9 @@ body.archive-no-select * {
     position: absolute;
     top: 6px;
     right: 30px;
-    background: var(--bg-subtle);
-    border: 1px solid color-mix(in srgb, var(--bubble-color, #888) 40%, transparent);
-    color: var(--bubble-color, var(--text-dim));
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
     padding: 1px 8px;
     border-radius: var(--radius-lg);
@@ -1060,9 +1057,9 @@ body.archive-no-select * {
 .message:hover .convert-job-pill { opacity: 0.8; }
 .convert-job-pill:hover {
     opacity: 1 !important;
-    color: var(--bubble-color, var(--text));
-    border-color: var(--bubble-color, rgba(255, 255, 255, 0.3));
-    background: color-mix(in srgb, var(--bubble-color, #888) 15%, transparent);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.18);
 }
 
 
@@ -1071,7 +1068,7 @@ body.archive-no-select * {
 .convert-job-modal {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(30, 30, 30, 0.35);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1082,13 +1079,13 @@ body.archive-no-select * {
 .convert-job-modal.hidden { display: none; }
 
 .convert-job-dialog {
-    background: var(--bg-header);
+    background: var(--bg-input);
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
     padding: 24px 28px;
     min-width: 360px;
     max-width: 480px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-lg);
     animation: modal-slide-in 0.2s ease-out;
 }
 
@@ -1194,8 +1191,8 @@ body.archive-no-select * {
     margin-top: 4px;
     padding: 10px 12px;
     border-radius: var(--radius-lg);
-    background: rgba(239, 68, 68, 0.08);
-    border: 1px solid rgba(239, 68, 68, 0.18);
+    background: rgba(204, 51, 51, 0.06);
+    border: 1px solid rgba(204, 51, 51, 0.15);
     color: var(--text);
     font-size: 13px;
     line-height: 1.35;
@@ -1230,8 +1227,8 @@ body.archive-no-select * {
 }
 
 .job-breadcrumb-link:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: var(--white-12);
+    background: var(--white-08);
+    border-color: var(--border);
     color: var(--text);
 }
 

@@ -1107,6 +1107,13 @@ async def websocket_endpoint(websocket: WebSocket):
                         store.add("system", "Resuming agent conversation...", msg_type="system", channel=channel)
                         await broadcast_status()
                         continue
+                    if cmd == "/stop":
+                        ch = router._get_ch(channel)
+                        ch["paused"] = True
+                        ch["guard_emitted"] = True
+                        store.add("system", "Session ended — agents paused. Type /continue to resume.", msg_type="system", channel=channel)
+                        await broadcast_status()
+                        continue
                     # Broadcast slash commands — expand without storing the raw command.
                     # _handle_new_message will store the expanded version.
                     if cmd in ("/hatmaking", "/artchallenge", "/roastreview", "/poetry"):

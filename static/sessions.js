@@ -220,6 +220,20 @@ function handleSessionEvent(action, session) {
 // Session bar
 // ---------------------------------------------------------------------------
 
+function _updateHeaderSessionIndicator(label) {
+    const el = document.getElementById('header-session-indicator');
+    const labelEl = document.getElementById('header-session-label');
+    const endBtn = document.getElementById('header-session-end');
+    if (!el) return;
+    if (!label) {
+        el.classList.add('hidden');
+        return;
+    }
+    el.classList.remove('hidden');
+    if (labelEl) labelEl.textContent = label;
+    if (endBtn) endBtn.style.display = activeSession ? '' : 'none';
+}
+
 function updateSessionBar() {
     const bar = document.getElementById('session-bar');
     if (!bar) return;
@@ -238,6 +252,7 @@ function updateSessionBar() {
             sessionIndicatorTargetChannel = null;
             bar.classList.add('hidden');
             bar.classList.remove('session-elsewhere');
+            _updateHeaderSessionIndicator(null);
             return;
         }
 
@@ -266,6 +281,9 @@ function updateSessionBar() {
             jumpBtn.style.display = '';
         }
         if (endBtn) endBtn.style.display = 'none';
+        _updateHeaderSessionIndicator(otherSessions.length === 1
+            ? `Session: #${targetChannel}`
+            : `${otherSessions.length} sessions`);
         return;
     }
 
@@ -296,6 +314,8 @@ function updateSessionBar() {
     } else {
         waitingEl.style.display = 'none';
     }
+
+    _updateHeaderSessionIndicator(templateName);
 }
 
 function jumpToSessionChannel() {
@@ -933,3 +953,16 @@ window.toggleDeleteSessionTemplateConfirm = toggleDeleteSessionTemplateConfirm;
 window.scrollToSessionOutput = scrollToSessionOutput;
 
 window.Sessions = { init: _sessionsInit };
+window.getActiveSessionForChannel = function(ch) { return activeSessionsByChannel[ch] || null; };
+window.endSessionForChannel = async function(ch) {
+    const session = activeSessionsByChannel[ch];
+    if (!session) return;
+    try {
+        await fetch(`/api/sessions/${session.id}/end`, {
+            method: 'POST',
+            headers: { 'X-Session-Token': window.SESSION_TOKEN },
+        });
+    } catch (e) {
+        alert('Error ending session: ' + e.message);
+    }
+};

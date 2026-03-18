@@ -39,9 +39,13 @@ function setupCharCounter(textareaId, counterId) {
 // ---------------------------------------------------------------------------
 
 function setupRulesGrip() {
-    const grip = document.getElementById('rules-grip');
-    const panel = document.getElementById('rules-panel');
+    // Grip is now shared on #right-panel, handled by setupJobsGrip in jobs.js
+    // This function is a no-op but kept for compatibility
+    const grip = document.getElementById('right-panel-grip');
+    const panel = document.getElementById('right-panel');
     if (!grip || !panel) return;
+    // Skip — already set up by jobs.js
+    return;
 
     let dragging = false;
     let startX = 0;
@@ -110,10 +114,20 @@ function handleRuleEvent(action, rule) {
 
 function toggleRulesPanel() {
     window._preserveScroll(() => {
-        const panel = document.getElementById('rules-panel');
-        panel.classList.toggle('hidden');
-        document.getElementById('rules-toggle').classList.toggle('active', !panel.classList.contains('hidden'));
-        if (!panel.classList.contains('hidden')) {
+        const rightPanel = document.getElementById('right-panel');
+        const rulesContent = document.getElementById('rp-rules-content');
+        const isOpen = !rightPanel.classList.contains('hidden') && !rulesContent.classList.contains('hidden');
+
+        if (isOpen) {
+            // Close the whole right panel
+            rightPanel.classList.add('hidden');
+            document.getElementById('rules-toggle').classList.remove('active');
+        } else {
+            // Open right panel showing rules
+            rightPanel.classList.remove('hidden');
+            switchRightPanel('rules');
+            document.getElementById('rules-toggle').classList.add('active');
+            document.getElementById('jobs-toggle').classList.remove('active');
             // Mark all current drafts as seen
             for (const r of window.rules) {
                 if (r.status === 'proposed' || r.status === 'draft') _seenRuleIds.add(r.id);
@@ -350,11 +364,10 @@ function renderRulesPanel() {
 
 function updateRulesBadge() {
     const rules = window.rules;
-    const badge = document.getElementById('rules-badge');
-    if (!badge) return;
     // Only count unseen proposals — not all drafts
-    const panel = document.getElementById('rules-panel');
-    const panelOpen = panel && !panel.classList.contains('hidden');
+    const rulesContent = document.getElementById('rp-rules-content');
+    const rightPanel = document.getElementById('right-panel');
+    const panelOpen = rightPanel && !rightPanel.classList.contains('hidden') && rulesContent && !rulesContent.classList.contains('hidden');
     if (panelOpen) {
         // Panel is open — everything is seen
         for (const r of rules) {
@@ -362,8 +375,12 @@ function updateRulesBadge() {
         }
     }
     const count = rules.filter(r => (r.status === 'proposed' || r.status === 'draft') && !_seenRuleIds.has(r.id)).length;
-    badge.textContent = count;
-    badge.classList.toggle('hidden', count === 0);
+    // Update header badge
+    const badge = document.getElementById('rules-badge');
+    if (badge) { badge.textContent = count; badge.classList.toggle('hidden', count === 0); }
+    // Update right-panel tab badge
+    const rpBadge = document.getElementById('rules-badge-rp');
+    if (rpBadge) { rpBadge.textContent = count; rpBadge.classList.toggle('hidden', count === 0); }
 }
 
 // ---------------------------------------------------------------------------

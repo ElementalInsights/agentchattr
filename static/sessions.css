@@ -15,7 +15,7 @@
 #session-bar.hidden { display: none; }
 
 #session-bar.session-elsewhere {
-    background: linear-gradient(90deg, #161624 0%, #1b1b2b 100%);
+    background: linear-gradient(90deg, var(--bg-header) 0%, var(--bg) 100%);
     border-bottom-color: var(--border-strong);
 }
 
@@ -54,8 +54,8 @@
 
 .session-jump-btn {
     background: none;
-    border: 1px solid rgba(124, 156, 255, 0.25);
-    color: #a8b7ff;
+    border: 1px solid rgba(91, 142, 201, 0.3);
+    color: var(--info);
     font-size: var(--fs-md);
     font-weight: var(--fw-semibold);
     padding: 3px var(--space-md);
@@ -66,13 +66,13 @@
 }
 
 .session-jump-btn:hover {
-    background: rgba(124, 156, 255, 0.12);
-    border-color: #7c9cff;
+    background: rgba(91, 142, 201, 0.08);
+    border-color: var(--info);
 }
 
 .session-end-btn {
     background: none;
-    border: 1px solid rgba(248, 113, 113, 0.25);
+    border: 1px solid rgba(204, 51, 51, 0.25);
     color: var(--error-color);
     font-size: var(--fs-md);
     font-weight: var(--fw-semibold);
@@ -155,7 +155,7 @@
 .session-launcher-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(30, 30, 30, 0.35);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,7 +163,7 @@
 }
 
 .session-launcher-dialog {
-    background: var(--bg-header);
+    background: var(--bg-input);
     border: 1px solid var(--border);
     border-radius: var(--radius-xl);
     width: 420px;
@@ -277,18 +277,18 @@
     font-weight: var(--fw-semibold);
     padding: 3px 10px;
     border-radius: var(--radius-full);
-    border: 1px solid rgba(248, 113, 113, 0.35);
-    background: rgba(248, 113, 113, 0.08);
-    color: #fca5a5;
+    border: 1px solid rgba(204, 51, 51, 0.25);
+    background: rgba(204, 51, 51, 0.06);
+    color: var(--error-color);
     cursor: pointer;
 }
 
 .session-tmpl-delete:hover {
-    background: rgba(248, 113, 113, 0.16);
+    background: rgba(204, 51, 51, 0.12);
 }
 
 .session-tmpl-delete.confirming {
-    background: rgba(248, 113, 113, 0.16);
+    background: rgba(204, 51, 51, 0.12);
 }
 
 .session-tmpl-delete-confirm {
@@ -303,7 +303,7 @@
     border-radius: var(--radius-sm);
     background: var(--accent-soft);
     color: var(--accent);
-    border: 1px solid rgba(124, 58, 237, 0.25);
+    border: 1px solid rgba(241, 101, 36, 0.25);
 }
 
 /* Session banners in timeline */
@@ -315,13 +315,13 @@
 }
 
 .session-banner-start {
-    background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.08), transparent);
-    border: 1px solid rgba(124, 58, 237, 0.19);
+    background: linear-gradient(90deg, transparent, rgba(241, 101, 36, 0.06), transparent);
+    border: 1px solid rgba(241, 101, 36, 0.15);
 }
 
 .session-banner-end {
-    background: linear-gradient(90deg, transparent, rgba(85, 85, 112, 0.08), transparent);
-    border: 1px solid rgba(85, 85, 112, 0.19);
+    background: linear-gradient(90deg, transparent, rgba(130, 129, 109, 0.08), transparent);
+    border: 1px solid rgba(130, 129, 109, 0.19);
 }
 
 /* Cast preview step */
@@ -434,8 +434,8 @@
 .session-start-btn:hover { opacity: 0.85; }
 
 .session-banner-phase {
-    background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.03), transparent);
-    border: 1px dashed rgba(124, 58, 237, 0.15);
+    background: linear-gradient(90deg, transparent, rgba(241, 101, 36, 0.03), transparent);
+    border: 1px dashed rgba(241, 101, 36, 0.15);
     font-size: var(--fs-sm);
     color: var(--text-dim);
 }
@@ -443,7 +443,7 @@
 /* Output highlighting */
 .session-output {
     border-left: 3px solid var(--accent);
-    background: rgba(124, 58, 237, 0.03);
+    background: rgba(241, 101, 36, 0.03);
 }
 
 .session-output-flash {
@@ -452,7 +452,7 @@
 
 @keyframes session-output-pulse {
     0% { background: var(--accent-hover); }
-    100% { background: rgba(124, 58, 237, 0.03); }
+    100% { background: rgba(241, 101, 36, 0.03); }
 }
 
 .session-output-link {
@@ -480,8 +480,8 @@
 }
 
 .session-draft-invalid .session-proposal-card {
-    border-color: rgba(248, 113, 113, 0.38);
-    background: rgba(248, 113, 113, 0.06);
+    border-color: rgba(204, 51, 51, 0.3);
+    background: rgba(204, 51, 51, 0.04);
 }
 
 .session-draft-superseded .session-proposal-card {
@@ -546,9 +546,9 @@
 }
 
 .session-draft-btn-save.saved {
-    background: rgba(124, 58, 237, 0.14);
+    background: var(--accent-soft);
     color: var(--accent);
-    border-color: rgba(124, 58, 237, 0.35);
+    border-color: rgba(241, 101, 36, 0.35);
     cursor: default;
 }
 

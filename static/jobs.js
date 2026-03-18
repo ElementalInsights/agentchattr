@@ -156,8 +156,8 @@ function _repairJobGroup(group) {
 // ---------------------------------------------------------------------------
 
 function setupJobsGrip() {
-    const grip = document.getElementById('jobs-grip');
-    const panel = document.getElementById('jobs-panel');
+    const grip = document.getElementById('right-panel-grip');
+    const panel = document.getElementById('right-panel');
     if (!grip || !panel) return;
 
     let dragging = false;
@@ -361,11 +361,20 @@ function clearJobReplyTarget(event) {
 
 function toggleJobsPanel() {
     window._preserveScroll(() => {
-        const panel = document.getElementById('jobs-panel');
-        panel.classList.toggle('hidden');
-        document.getElementById('jobs-toggle').classList.toggle('active', !panel.classList.contains('hidden'));
-        if (!panel.classList.contains('hidden')) {
-            // Return to list view if we were in conversation view
+        const rightPanel = document.getElementById('right-panel');
+        const jobsContent = document.getElementById('rp-jobs-content');
+        const isOpen = !rightPanel.classList.contains('hidden') && !jobsContent.classList.contains('hidden');
+
+        if (isOpen) {
+            // Close the whole right panel
+            rightPanel.classList.add('hidden');
+            document.getElementById('jobs-toggle').classList.remove('active');
+        } else {
+            // Open right panel showing jobs
+            rightPanel.classList.remove('hidden');
+            switchRightPanel('jobs');
+            document.getElementById('jobs-toggle').classList.add('active');
+            document.getElementById('rules-toggle').classList.remove('active');
             showJobsListView();
             renderJobsList();
         }
@@ -1937,14 +1946,17 @@ function syncJobUnreadCache() {
 }
 
 function updateJobsBadge() {
-    const badge = document.getElementById('jobs-badge');
-    if (!badge) return;
     let total = 0;
     for (const count of Object.values(jobUnread)) {
         total += Number(count || 0);
     }
-    badge.textContent = total > 99 ? '99+' : String(total);
-    badge.classList.toggle('hidden', total === 0);
+    const text = total > 99 ? '99+' : String(total);
+    // Update header badge
+    const badge = document.getElementById('jobs-badge');
+    if (badge) { badge.textContent = text; badge.classList.toggle('hidden', total === 0); }
+    // Update right-panel tab badge
+    const rpBadge = document.getElementById('jobs-badge-rp');
+    if (rpBadge) { rpBadge.textContent = text; rpBadge.classList.toggle('hidden', total === 0); }
 }
 
 function markJobRead(jobId) {
