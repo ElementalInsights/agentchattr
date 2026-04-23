@@ -13,6 +13,34 @@ cwd = ".."
 color = "#da7756"
 label = "Claude"
 
+# --- Athena Rust Lab team ---
+# Three Claude instances, each locked to the athena-rust-lab project.
+# Launch each with: python wrapper.py claude-arch / claude-build / claude-review
+
+[agents.claude-arch]
+command = "claude"
+cwd = "../athena-rust-lab"
+color = "#f59e0b"
+label = "Architect"
+
+[agents.claude-build]
+command = "claude"
+cwd = "../athena-rust-lab"
+color = "#34d399"
+label = "Builder"
+
+[agents.claude-review]
+command = "claude"
+cwd = "../athena-rust-lab"
+color = "#a78bfa"
+label = "Reviewer"
+
+[agents.claude-science]
+command = "claude"
+cwd = "../athena-rust-lab"
+color = "#38bdf8"
+label = "Scientist"
+
 [agents.codex]
 command = "codex"
 cwd = ".."
