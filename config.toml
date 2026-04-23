@@ -22,24 +22,40 @@ command = "claude"
 cwd = "../athena-rust-lab"
 color = "#f59e0b"
 label = "Architect"
+mcp_inject = "flag"
+mcp_flag = "--mcp-config"
+mcp_transport = "http"
+mcp_merge_project = true
 
 [agents.claude-build]
 command = "claude"
 cwd = "../athena-rust-lab"
 color = "#34d399"
 label = "Builder"
+mcp_inject = "flag"
+mcp_flag = "--mcp-config"
+mcp_transport = "http"
+mcp_merge_project = true
 
 [agents.claude-review]
 command = "claude"
 cwd = "../athena-rust-lab"
 color = "#a78bfa"
 label = "Reviewer"
+mcp_inject = "flag"
+mcp_flag = "--mcp-config"
+mcp_transport = "http"
+mcp_merge_project = true
 
 [agents.claude-science]
 command = "claude"
 cwd = "../athena-rust-lab"
 color = "#38bdf8"
 label = "Scientist"
+mcp_inject = "flag"
+mcp_flag = "--mcp-config"
+mcp_transport = "http"
+mcp_merge_project = true
 
 [agents.codex]
 command = "codex"
