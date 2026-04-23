@@ -1,57 +1,57 @@
-/* agentchattr — warm minimal light theme */
-/* Palette: carbon-black #1e1e1e, alabaster-grey #e5e5e5, grey-olive #82816d, blaze-orange #f16524, jet-black #1b2d2a */
+/* Athena — AI Team | Strategic Operations Theme */
+/* Palette: midnight #0b0f1a, amber #f59e0b, slate #94a3b8, navy #0d1220 */
 
 :root {
     /* --- Surfaces --- */
-    --bg: #e5e5e5;
-    --bg-header: #dcdcdc;
-    --bg-input: #f0f0f0;
-    --bg-msg: #e5e5e5;
-    --bg-msg-hover: #d9d9d9;
-    --bg-elevated: #dcdcdc;
-    --bg-subtle: rgba(30, 30, 30, 0.04);
-    --bg-overlay: rgba(30, 30, 30, 0.3);
+    --bg: #0b0f1a;
+    --bg-header: #080c14;
+    --bg-input: #0f1625;
+    --bg-msg: #0b0f1a;
+    --bg-msg-hover: rgba(245, 158, 11, 0.04);
+    --bg-elevated: #111827;
+    --bg-subtle: rgba(245, 158, 11, 0.03);
+    --bg-overlay: rgba(0, 0, 0, 0.6);
 
     /* --- Borders --- */
-    --border: #c8c8c8;
-    --border-strong: #b0b0b0;
-    --border-subtle: rgba(30, 30, 30, 0.08);
+    --border: rgba(245, 158, 11, 0.12);
+    --border-strong: rgba(245, 158, 11, 0.28);
+    --border-subtle: rgba(245, 158, 11, 0.06);
 
     /* --- Text --- */
-    --text: #1e1e1e;
-    --text-dim: #82816d;
-    --text-system: #9a9988;
-    --text-on-accent: #ffffff;
-    --text-muted: #5a5a4e;
+    --text: #e2e8f0;
+    --text-dim: #64748b;
+    --text-system: #475569;
+    --text-on-accent: #0b0f1a;
+    --text-muted: #94a3b8;
 
     /* --- Semantic colors --- */
-    --accent: #f16524;
-    --accent-soft: rgba(241, 101, 36, 0.10);
-    --accent-hover: rgba(241, 101, 36, 0.14);
-    --user-color: #1e1e1e;
-    --system-color: #82816d;
+    --accent: #f59e0b;
+    --accent-soft: rgba(245, 158, 11, 0.10);
+    --accent-hover: rgba(245, 158, 11, 0.18);
+    --user-color: #e2e8f0;
+    --system-color: #475569;
 
-    --success: #3D9970;
-    --success-soft: rgba(61, 153, 112, 0.12);
-    --online: #3D9970;
+    --success: #10b981;
+    --success-soft: rgba(16, 185, 129, 0.12);
+    --online: #10b981;
 
-    --danger: #CC3333;
-    --danger-soft: rgba(204, 51, 51, 0.08);
-    --error-color: #CC3333;
-    --error-soft: rgba(204, 51, 51, 0.08);
+    --danger: #ef4444;
+    --danger-soft: rgba(239, 68, 68, 0.10);
+    --error-color: #ef4444;
+    --error-soft: rgba(239, 68, 68, 0.08);
 
-    --warning: #D4942B;
-    --pending: #f16524;
-    --info: #5B8EC9;
+    --warning: #f59e0b;
+    --pending: #f59e0b;
+    --info: #38bdf8;
 
-    /* --- Neutral tints (dark alpha for light theme) --- */
-    --white-02: rgba(30, 30, 30, 0.02);
-    --white-03: rgba(30, 30, 30, 0.03);
-    --white-06: rgba(30, 30, 30, 0.05);
-    --white-08: rgba(30, 30, 30, 0.06);
-    --white-10: rgba(30, 30, 30, 0.08);
-    --white-12: rgba(30, 30, 30, 0.10);
-    --white-15: rgba(30, 30, 30, 0.12);
+    /* --- Neutral tints (light alpha for dark theme) --- */
+    --white-02: rgba(255, 255, 255, 0.02);
+    --white-03: rgba(255, 255, 255, 0.03);
+    --white-06: rgba(255, 255, 255, 0.05);
+    --white-08: rgba(255, 255, 255, 0.06);
+    --white-10: rgba(255, 255, 255, 0.08);
+    --white-12: rgba(255, 255, 255, 0.10);
+    --white-15: rgba(255, 255, 255, 0.12);
 
     /* --- Space --- */
     --space-xs: 4px;
@@ -61,10 +61,10 @@
     --space-xl: 24px;
 
     /* --- Radius --- */
-    --radius-sm: 4px;
-    --radius-md: 6px;
-    --radius-lg: 8px;
-    --radius-xl: 12px;
+    --radius-sm: 3px;
+    --radius-md: 5px;
+    --radius-lg: 7px;
+    --radius-xl: 10px;
     --radius-full: 9999px;
 
     /* --- Typography --- */
@@ -85,16 +85,16 @@
     --duration-normal: 200ms;
     --duration-slow: 300ms;
 
-    /* --- Shadows (minimal, no glow) --- */
-    --shadow-sm: 0 1px 2px rgba(30, 30, 30, 0.06);
-    --shadow-md: 0 2px 8px rgba(30, 30, 30, 0.08);
-    --shadow-lg: 0 4px 16px rgba(30, 30, 30, 0.10);
+    /* --- Shadows --- */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
 
-    /* --- Sidebar (legacy tokens, kept for compat) --- */
+    /* --- Sidebar tokens --- */
     --sb-padding: 8px 16px;
     --sb-gap: 8px;
-    --sb-card-radius: 6px;
-    --sb-card-border-color: rgba(30, 30, 30, 0.06);
+    --sb-card-radius: 4px;
+    --sb-card-border-color: rgba(245, 158, 11, 0.08);
     --sb-card-border-width: 1px;
     --sb-title-fs: 13px;
     --sb-title-fw: 600;
@@ -103,7 +103,7 @@
     --sb-label-fs: 11px;
     --sb-meta-fw: 400;
     --sb-meta-lh: 1.35;
-    --sb-ghost-opacity: 0.5;
+    --sb-ghost-opacity: 0.4;
     --sb-motion-fast: 160ms;
 }
 
@@ -124,21 +124,21 @@ body {
 }
 
 body, body.font-sans {
-    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Outfit', 'Segoe UI', system-ui, sans-serif;
     font-size: 14px;
 }
 
 body.font-mono {
-    font-family: 'Cascadia Code', 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    font-family: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', monospace;
 }
 
 body.high-contrast {
-    --text-dim: #5a5a4e;
-    --text-system: #6a6a5c;
-    --text-muted: #3a3a30;
-    --border: #a0a090;
-    --border-subtle: rgba(30, 30, 30, 0.15);
-    --bg-subtle: rgba(30, 30, 30, 0.06);
+    --text-dim: #94a3b8;
+    --text-system: #64748b;
+    --text-muted: #cbd5e1;
+    --border: rgba(245, 158, 11, 0.3);
+    --border-subtle: rgba(245, 158, 11, 0.12);
+    --bg-subtle: rgba(245, 158, 11, 0.05);
 }
 
 #app {
@@ -4221,4 +4221,420 @@ footer {
 @keyframes decisionFadeIn {
     from { opacity: 0; transform: translateY(-4px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   ATHENA — AI TEAM  |  Strategic Operations Theme
+   ============================================================ */
+
+/* Grid background */
+body {
+    background-color: #0b0f1a;
+    background-image:
+        linear-gradient(rgba(245, 158, 11, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245, 158, 11, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* Header */
+header {
+    background: #080c14;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+    padding: 10px 20px;
+}
+
+/* Athena mark (triangle logo) */
+.athena-mark {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.4));
+}
+
+/* Header title */
+#room-title {
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.12em !important;
+    color: #f59e0b !important;
+    text-transform: uppercase;
+}
+
+.title-sub {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: #64748b;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+/* Hide original logo img */
+.header-logo { display: none !important; }
+
+/* Discord pill — hidden */
+.discord-pill { display: none !important; }
+
+/* Header buttons */
+.settings-btn {
+    color: #64748b;
+    border: 1px solid rgba(245, 158, 11, 0.10);
+    border-radius: var(--radius-sm);
+    background: rgba(245, 158, 11, 0.04);
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.settings-btn:hover {
+    color: #f59e0b;
+    border-color: rgba(245, 158, 11, 0.3);
+    background: rgba(245, 158, 11, 0.08);
+}
+
+/* Channel sidebar */
+#channel-sidebar {
+    background: #080c14;
+    border-right: 1px solid rgba(245, 158, 11, 0.10);
+}
+
+.channel-sidebar-header {
+    border-bottom: 1px solid rgba(245, 158, 11, 0.10);
+}
+
+.channel-sidebar-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #475569;
+}
+
+/* Active channel tab */
+.channel-tab.active,
+.channel-tab-inner.active {
+    color: #f59e0b !important;
+    background: rgba(245, 158, 11, 0.08) !important;
+    border-left: 2px solid #f59e0b !important;
+}
+
+.channel-tab, .channel-tab-inner {
+    border-left: 2px solid transparent;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: #64748b;
+    transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+
+.channel-tab:hover, .channel-tab-inner:hover {
+    color: #94a3b8;
+    background: rgba(255,255,255,0.03);
+}
+
+/* Timeline / messages area */
+#timeline {
+    background: transparent;
+}
+
+/* Message rows */
+.message-row:hover {
+    background: rgba(245, 158, 11, 0.03);
+}
+
+/* Agent name in messages */
+.msg-sender {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-size: 13px;
+}
+
+/* Timestamp */
+.msg-time {
+    color: #334155;
+    font-size: 10px;
+}
+
+/* System messages */
+.message-system .msg-text {
+    color: #334155;
+    font-size: 12px;
+    font-style: normal;
+    letter-spacing: 0.02em;
+}
+
+/* Code blocks */
+pre, code {
+    font-family: 'JetBrains Mono', monospace !important;
+    background: #060910 !important;
+    border: 1px solid rgba(245, 158, 11, 0.12) !important;
+    color: #a5b4fc !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+/* Input area */
+footer {
+    background: #080c14;
+    border-top: 1px solid rgba(245, 158, 11, 0.10);
+}
+
+#input {
+    background: #0f1625;
+    border: 1px solid rgba(245, 158, 11, 0.12);
+    color: #e2e8f0;
+    border-radius: var(--radius-sm);
+    font-family: 'Outfit', sans-serif;
+    transition: border-color 0.15s;
+}
+
+#input:focus {
+    border-color: rgba(245, 158, 11, 0.35);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.08);
+}
+
+/* Send button */
+#send {
+    background: #f59e0b;
+    color: #0b0f1a;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s, box-shadow 0.15s;
+}
+#send:hover {
+    background: #fbbf24;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+}
+
+/* Schedule clock button */
+.send-clock {
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.15);
+    color: #64748b;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    transition: color 0.15s, background 0.15s;
+}
+.send-clock:hover { color: #f59e0b; background: rgba(245, 158, 11, 0.14); }
+
+/* Session launch button */
+#session-launch-btn {
+    color: #475569;
+    transition: color 0.15s;
+}
+#session-launch-btn:hover { color: #f59e0b; }
+
+/* Mic button */
+#mic { color: #475569; transition: color 0.15s; }
+#mic:hover { color: #f59e0b; }
+#mic.active { color: #ef4444; }
+
+/* Input hint */
+.input-hint {
+    color: #1e293b;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+}
+
+/* Sender label */
+.sender-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: #475569;
+    text-transform: uppercase;
+}
+
+/* Mention toggles */
+.mention-toggle {
+    border-radius: var(--radius-sm) !important;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+}
+
+/* Right panel */
+#right-panel {
+    background: #080c14;
+    border-left: 1px solid rgba(245, 158, 11, 0.10);
+}
+
+.right-panel-tabs {
+    border-bottom: 1px solid rgba(245, 158, 11, 0.10);
+    background: #080c14;
+}
+
+.right-panel-tab {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #475569;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+}
+.right-panel-tab.active {
+    color: #f59e0b;
+    border-bottom-color: #f59e0b;
+}
+.right-panel-tab:hover { color: #94a3b8; }
+
+/* Jobs panel */
+.jobs-header span,
+.rules-header span {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #64748b;
+}
+
+.job-card {
+    border: 1px solid rgba(245, 158, 11, 0.08);
+    background: rgba(245, 158, 11, 0.02);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.15s, background 0.15s;
+}
+.job-card:hover {
+    border-color: rgba(245, 158, 11, 0.2);
+    background: rgba(245, 158, 11, 0.05);
+}
+
+/* Job status toggles */
+.job-toggle.open   { border-color: rgba(245, 158, 11, 0.3); color: #f59e0b; }
+.job-toggle.done   { border-color: rgba(16, 185, 129, 0.3); color: #10b981; }
+.job-toggle.archived { border-color: rgba(100, 116, 139, 0.3); color: #64748b; }
+
+/* Rules */
+.rule-card {
+    border-left: 2px solid rgba(245, 158, 11, 0.3);
+    background: rgba(245, 158, 11, 0.02);
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* Agent status pills */
+.agent-pill {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    border-radius: var(--radius-sm) !important;
+    text-transform: uppercase;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    border-color: rgba(245, 158, 11, 0.15);
+    border-top-color: #f59e0b;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(245, 158, 11, 0.15); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(245, 158, 11, 0.3); }
+
+/* Scroll-to-bottom anchor */
+#scroll-anchor {
+    background: #f59e0b;
+    color: #0b0f1a;
+    border: none;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+/* Typing indicator */
+#typing-indicator {
+    color: #475569;
+    font-size: 12px;
+    font-style: italic;
+}
+
+/* Date dividers */
+.date-divider span {
+    background: #0b0f1a;
+    color: #334155;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0 12px;
+}
+.date-divider::before {
+    background: rgba(245, 158, 11, 0.08);
+}
+
+/* Pins panel */
+#pins-panel {
+    background: #080c14;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.10);
+}
+
+/* Settings bar */
+#settings-bar {
+    background: #080c14;
+    border-bottom: 1px solid rgba(245, 158, 11, 0.10);
+}
+
+#settings-bar label {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #475569;
+}
+
+#settings-bar select,
+#settings-bar input[type="text"],
+#settings-bar input[type="number"] {
+    background: #0f1625;
+    border: 1px solid rgba(245, 158, 11, 0.12);
+    color: #e2e8f0;
+    border-radius: var(--radius-sm);
+}
+
+/* Support / channel support links — hidden */
+.channel-support { display: none !important; }
+
+/* Session bar */
+#session-bar {
+    background: rgba(245, 158, 11, 0.06);
+    border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+/* Proposal cards */
+.proposal-card {
+    border: 1px solid rgba(245, 158, 11, 0.15);
+    background: rgba(245, 158, 11, 0.03);
+    border-radius: var(--radius-sm);
+}
+
+/* Drop zone */
+.dropzone-inner {
+    border: 2px dashed rgba(245, 158, 11, 0.3);
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.05);
+    border-radius: var(--radius-lg);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* @mention pills in messages */
+.mention-pill {
+    border-radius: var(--radius-sm) !important;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.04em;
 }
