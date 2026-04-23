@@ -10,7 +10,7 @@ data_dir = "./data"
 [agents.claude]
 command = "claude"
 cwd = ".."
-color = "#da7756"
+color = "#38bdf8"
 label = "Claude"
 
 # --- Athena Rust Lab team ---
@@ -44,25 +44,25 @@ label = "Scientist"
 [agents.codex]
 command = "codex"
 cwd = ".."
-color = "#10a37f"
+color = "#6ee7b7"
 label = "Codex"
 
 [agents.gemini]
 command = "gemini"
 cwd = ".."
-color = "#4285f4"
+color = "#818cf8"
 label = "Gemini"
 
 [agents.kimi]
 command = "kimi"
 cwd = ".."
-color = "#1783ff"
+color = "#67e8f9"
 label = "Kimi"
 
 [agents.qwen]
 command = "qwen"
 cwd = ".."
-color = "#8b5cf6"
+color = "#c4b5fd"
 label = "Qwen"
 mcp_inject = "settings_file"
 mcp_settings_path = ".qwen/settings.json"
@@ -72,7 +72,7 @@ inject_delay = 1.0
 [agents.kilo]
 command = "kilo"
 cwd = ".."
-color = "#f7f677"
+color = "#fde68a"
 label = "Kilo"
 
 [agents.minimax]
